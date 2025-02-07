@@ -8,11 +8,13 @@ const Passcrypt = () => {
   const [decryptPasswordInput, setDecryptPasswordInput] = useState('');
   const [decryptedPassword, setDecryptedPassword] = useState('');
 
-  // Username-related states
+  // Username-related states (currently not used)
+  /*
   const [userId, setUserId] = useState('');
   const [encryptedUsername, setEncryptedUsername] = useState('');
   const [decryptUsernameInput, setDecryptUsernameInput] = useState('');
   const [decryptedUsername, setDecryptedUsername] = useState('');
+  */
 
   // Copy to Clipboard Function (used for both sections)
   const handleCopy = (text) => {
@@ -60,53 +62,6 @@ const Passcrypt = () => {
     } catch (error) {
       console.error('Decryption error:', error);
       alert('Password decryption failed. Check console for details.');
-    }
-  };
-
-  // Username Encryption Handler
-  const handleEncryptUsername = async (e) => {
-    e.preventDefault();
-    if (!userId) {
-      alert('Please enter a username to encrypt.');
-      return;
-    }
-    try {
-      const response = await fetch('http://localhost:5000/encrypt-username', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username: userId }),
-      });
-      const data = await response.json();
-      if (data.error) {
-        alert(data.error);
-      } else {
-        setEncryptedUsername(data.encryptedString);
-        setDecryptUsernameInput(data.encryptedString);
-      }
-    } catch (error) {
-      console.error('Username encryption error:', error);
-      alert('Username encryption failed. Check console for details.');
-    }
-  };
-
-  // Username Decryption Handler
-  const handleDecryptUsername = async (e) => {
-    e.preventDefault();
-    try {
-      const response = await fetch('http://localhost:5000/decrypt-username', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ encryptedString: decryptUsernameInput }),
-      });
-      const data = await response.json();
-      if (data.error) {
-        alert(data.error);
-      } else {
-        setDecryptedUsername(data.username);
-      }
-    } catch (error) {
-      console.error('Username decryption error:', error);
-      alert('Username decryption failed. Check console for details.');
     }
   };
 
