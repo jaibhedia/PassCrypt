@@ -123,6 +123,7 @@ const Passcrypt = () => {
         <div style={styles.section}>
           <h2 style={styles.sectionTitle}>Store Password</h2>
           <form onSubmit={handleEncryptPassword} style={styles.form}>
+            {/* Uncomment below if you wish to add company name in the future */}
             {/* <div style={styles.formGroup}>
               <label style={styles.label}>Company Name</label>
               <input
@@ -194,7 +195,10 @@ const Passcrypt = () => {
           </div>
         </div>
 
-        {/* Username Section */}
+        {/*
+        // ========================
+        // Username Section (Commented Out)
+        // ========================
         <div style={styles.section}>
           <h2 style={styles.sectionTitle}>Store Username</h2>
           <form onSubmit={handleEncryptUsername} style={styles.form}>
@@ -258,6 +262,7 @@ const Passcrypt = () => {
             </div>
           </div>
         </div>
+        */}
       </div>
 
       {/* Footer */}
