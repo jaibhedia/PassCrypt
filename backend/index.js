@@ -1,5 +1,3 @@
-require('dotenv').config(); // load env variables if using a .env file
-
 const express = require('express');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
