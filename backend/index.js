@@ -1,10 +1,21 @@
+require('dotenv').config(); // load env variables if using a .env file
+
 const express = require('express');
 const bodyParser = require('body-parser');
 const crypto = require('crypto');
 const cors = require('cors');
 
 const app = express();
-app.use(cors()); // Enable CORS
+
+// Configure CORS to allow requests only from http://localhost:3000
+const corsOptions = {
+  origin: 'http://localhost:3000',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  credentials: true, // if your frontend needs to send cookies or other credentials
+  optionsSuccessStatus: 200,
+};
+app.use(cors(corsOptions));
+
 app.use(bodyParser.json());
 
 const SECRET = process.env.ENCRYPTION_SECRET || 'mysecretkey'; // Replace with a secure key
@@ -87,5 +98,5 @@ app.post('/decrypt-username', (req, res) => {
   }
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

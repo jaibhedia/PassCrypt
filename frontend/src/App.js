@@ -26,7 +26,7 @@ const Passcrypt = () => {
   const handleEncryptPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/encrypt', {
+      const response = await fetch('./encrypt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ password }),
@@ -48,7 +48,7 @@ const Passcrypt = () => {
   const handleDecryptPassword = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('http://localhost:5000/decrypt', {
+      const response = await fetch('./decrypt', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ encryptedString: decryptPasswordInput }),
