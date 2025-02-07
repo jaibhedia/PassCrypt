@@ -4,16 +4,7 @@ const crypto = require('crypto');
 const cors = require('cors');
 
 const app = express();
-
-// Configure CORS to allow requests only from http://localhost:3000
-const corsOptions = {
-  origin: 'http://localhost:3000',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  credentials: true, // if your frontend needs to send cookies or other credentials
-  optionsSuccessStatus: 200,
-};
-app.use(cors(corsOptions));
-
+app.use(cors()); // Enable CORS
 app.use(bodyParser.json());
 
 const SECRET = process.env.ENCRYPTION_SECRET || 'mysecretkey'; // Replace with a secure key
