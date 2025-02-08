@@ -5,18 +5,11 @@
   "scripts": {
     "start": "node index.js"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
   "dependencies": {
-    "bcryptjs": "^2.4.3",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
-    "crypto-js": "^4.2.0",
-    "debug": "^4.4.0",
-    "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "serverless-http": "^2.7.0"
   }
 }
